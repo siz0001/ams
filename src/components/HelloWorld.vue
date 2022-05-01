@@ -2,7 +2,10 @@
   <v-container class="min-h-screen flex items-center justify-center">
     <div class="w-[500px] bg-white rounded-lg shadow-lg py-[50px] px-12">
       <div class="text-center"><img src="/img/logo.png" alt="" /></div>
-      <div class="text-center py-5 text-3xl font-bold">로그인</div>
+      <div class="flex items-center justify-center py-5 text-gray-500">
+        <div class="text-xl">CP-AMS</div>
+        <div class="text-3xl font-bold ml-2">로그인</div>
+      </div>
       <div>
         <div class="space-y-4">
           <v-text-field
