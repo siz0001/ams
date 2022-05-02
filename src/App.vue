@@ -1,9 +1,5 @@
 <template>
-  <v-app>
-    <v-main>
-      <HelloWorld/>
-    </v-main>
-  </v-app>
+  <HelloWorld />
 </template>
 
 <script>
@@ -13,11 +9,11 @@ export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    HelloWorld
   },
 
   data: () => ({
     //
-  }),
+  })
 }
 </script>

@@ -12,7 +12,7 @@ export default createVuetify({
       myCustomLightTheme: {
         colors: {
           background: '#F9FAFB',
-          primary: '#4F46E5'
+          primary: '#1b53a0'
         }
       }
     }
