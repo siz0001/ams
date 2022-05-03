@@ -1,13 +1,13 @@
 <template>
   <div
-    class="w-[1620px] mx-auto min-h-screen p-0 bg-[url('/img/bg.jpg')] bg-no-repeat bg-top overflow-auto after:h-[350px] after:absolute after:top-0 after:left-0 after:right-0 after:bg-[#0076ca] after:-z-10"
+    class="max-w-[1620px] mx-auto min-h-screen p-0 bg-[url('/img/bg.jpg')] bg-no-repeat bg-top overflow-auto after:h-[350px] after:absolute after:top-0 after:left-0 after:right-0 after:bg-[#0076ca] after:-z-10"
   >
     <div
       class="mt-[60px] after:w-[10px] after:h-[20px] after:bg-black leading-0"
     >
       <img src="/img/chungpa.png" alt="" />
     </div>
-    <div class="w-[614px] mx-auto rounded-2xl mt-[29px]">
+    <div class="max-w-[614px] mx-auto rounded-2xl mt-[29px]">
       <div
         class="h-[214px] border-t-2 border-r-2 border-l-2 border-white rounded-t-2xl py-[50px] px-[80px] pb-0"
       >
@@ -23,14 +23,14 @@
         <div class="space-y-4">
           <v-text-field
             color="primary"
-            label="code"
+            label="CODE"
             variant="outlined"
             hide-details="auto"
             shaped
           ></v-text-field>
           <v-text-field
             color="primary"
-            label="id"
+            label="ID"
             variant="outlined"
             hide-details="auto"
             shaped
@@ -38,7 +38,7 @@
           <v-text-field
             color="primary"
             type="password"
-            label="pw"
+            label="PW"
             variant="outlined"
             hide-details="auto"
             shaped
@@ -57,7 +57,7 @@
             color="primary"
             size="x-large"
             rounded="pill"
-            @click="toggleTheme"
+            @click="$router.push('/loginHistory')"
             >로그인</v-btn
           >
         </div>
@@ -68,14 +68,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-
-const theme = ref('light')
-
-function toggleTheme() {
-  console.log('asd')
-  return (theme.value = theme.value === 'light' ? 'dark' : 'light')
-}
-</script>

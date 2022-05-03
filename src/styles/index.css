@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 html {
-  font-family: 'Noto Sans', 'Roboto', sans-serif;
+  font-family: sans-serif, 'Roboto', 'Noto Sans', 'PF PRO';
 }
 
 .v-field--variant-outlined .v-field__outline__notch {
-  border-width: 0;
+  border-width: 0 !important;
 }
 
 .v-field__outline__start {
@@ -15,4 +15,16 @@ html {
 }
 .v-field__outline__end {
   border-radius: 0 4px 4px 0;
+}
+
+.v-table__wrapper {
+  border-top: 2px solid #1b53a0;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.v-pagination__item--is-active {
+  .v-btn {
+    background-color: #1b53a0;
+    color: white;
+  }
 }
