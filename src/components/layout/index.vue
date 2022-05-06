@@ -7,13 +7,13 @@ const { title } = defineProps({
 </script>
 
 <template>
-  <div>
+  <div class="h-full flex">
     <div
-      class="fixed top-0 bottom-0 left-0 w-[280px] flex-none h-screen bg-[#0076ca] overflow-auto"
+      class="h-full w-[280px] flex-none bg-[#0076ca] overflow-auto hidden xl:block"
     >
       <Side />
     </div>
-    <div class="ml-[280px] py-6 px-[50px] flex-1">
+    <div class="w-[calc(100%-280px)] py-6 flex-1 !px-4 sm:!px-8">
       <div class="text-3xl flex items-center">
         청파초등학교<span class="w-2 h-2 mx-2 bg-[#1b53a0]"></span>{{ title }}
       </div>

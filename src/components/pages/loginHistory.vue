@@ -47,23 +47,21 @@ for (let index = 0; index < 10; index++) {
         <v-btn flat color="white" class="border border-[#bfbfbf]">삭제</v-btn>
       </div>
     </div>
-    <v-table class="mt-8">
+    <table class="table-basic mt-8">
       <thead>
         <tr>
-          <th class="text-2xl">번호</th>
-          <th class="text-2xl">선택</th>
-          <th class="text-2xl">기관</th>
-          <th class="text-2xl">로그인ID</th>
-          <th class="text-2xl">IP</th>
-          <th class="text-2xl">로그인 일시</th>
-          <th class="text-2xl">로그아웃 일시</th>
+          <th class="w-[74px]">선택</th>
+          <th>기관</th>
+          <th>로그인ID</th>
+          <th>IP</th>
+          <th>로그인 일시</th>
+          <th>로그아웃 일시</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in datas" :key="item.name">
-          <td class="text-center">{{ item.id }}</td>
+        <tr v-for="item in datas" :key="item.id">
           <td class="text-center">
-            <input type="checkbox" />
+            <input type="checkbox" class="form-checkbox" />
           </td>
           <td class="text-center">{{ item.agency }}</td>
           <td class="text-center">{{ item.userId }}</td>
@@ -72,7 +70,7 @@ for (let index = 0; index < 10; index++) {
           <td class="text-center">{{ item.logoutTime }}</td>
         </tr>
       </tbody>
-    </v-table>
+    </table>
     <v-pagination class="mt-8" rounded="circle" :length="6"></v-pagination>
   </Layout>
 </template>

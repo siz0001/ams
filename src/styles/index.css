@@ -3,7 +3,32 @@
 @tailwind utilities;
 
 html {
-  font-family: sans-serif, 'Roboto', 'Noto Sans', 'PF PRO';
+  font-family: 'Noto Sans', sans-serif;
+  overflow-y: auto;
+  min-width: 375px;
+}
+html::-webkit-scrollbar {
+  width: 12px;
+}
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: #7f8497;
+  border: 3px solid #ffffff;
+  border-radius: 20px;
+  transition: opacity 0.3s ease-in-out;
+}
+html:hover::-webkit-scrollbar-thumb {
+  visible: visible;
+}
+html,
+body,
+#app {
+  height: 100%;
+}
+sub {
+  bottom: 0;
 }
 
 .v-field--variant-outlined .v-field__outline__notch {
@@ -26,5 +51,19 @@ html {
   .v-btn {
     background-color: #1b53a0;
     color: white;
+  }
+}
+
+/* Checkbox */
+.form-checkbox {
+  @apply appearance-none w-5 h-5 rounded-sm align-top bg-white border border-solid border-[#999999] bg-checkbox-bg bg-no-repeat bg-0 focus:outline-none cursor-pointer shadow-sm checked:bg-right checked:border-0 checked:bg-[#1b53a0] checked:bg-full transition-all;
+}
+.table-basic {
+  @apply w-full border-t-2 border-[#0076ca] text-sm;
+  thead th {
+    @apply font-bold h-[53px] border-b border-[#e2e2e2] px-6;
+  }
+  tbody td {
+    @apply py-3 border-b border-[#e2e2e2];
   }
 }
