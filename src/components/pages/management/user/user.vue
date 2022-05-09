@@ -5,19 +5,22 @@ const datas = []
 for (let index = 0; index < 10; index++) {
   datas.push({
     id: String(index).padStart(4, '0'),
-    agency: '청파초등학교',
-    userId: 'admin',
-    ip: '192.168.0.1',
-    loginTime: '2020-01-01 00:00:00',
-    logoutTime: '2020-01-01 00:00:00'
+    agency: '기관명',
+    userId: 'abc',
+    name: '홍길동',
+    email: 'abc@naver.com',
+    phone: '000-0000-0000',
+    authority: index % 2 ? '기관사용자' : 'SVR사용자',
+    sms: index % 2 ? '전송' : '미전송',
+    language: index % 2 ? 'English' : '한국어'
   })
 }
 </script>
 
 <template>
-  <Layout title="로그인 이력 현황">
+  <Layout title="사용자관리">
     <div
-      class="mt-[50px] px-10 flex flex-col gap-1 lg:flex-row lg:items-center lg:gap-1 justify-between bg-[#f3f9ff] py-6"
+      class="mt-[50px] px-10 flex items-center justify-between bg-[#f3f9ff] h-[90px]"
     >
       <div class="flex items-center space-x-2">
         <v-text-field
@@ -30,16 +33,10 @@ for (let index = 0; index < 10; index++) {
           hide-details="auto"
           shaped
         ></v-text-field>
-        <v-text-field
-          class="w-[220px] bg-white"
-          color="primary"
-          density="compact"
-          label="ID"
-          variant="outlined"
-          hide-details="auto"
-          shaped
-        ></v-text-field>
-        <v-btn flat color="black">조회<v-icon>mdi-magnify</v-icon> </v-btn>
+        <v-btn flat color="primary"
+          >조회<v-icon class="ml-1">mdi-magnify</v-icon>
+        </v-btn>
+        <v-btn flat color="white" class="border border-[#bfbfbf]">초기화</v-btn>
       </div>
       <div class="space-x-1">
         <v-btn flat color="white" class="border border-[#bfbfbf]">등록</v-btn>
@@ -52,11 +49,14 @@ for (let index = 0; index < 10; index++) {
         <thead>
           <tr>
             <th class="w-[74px]">선택</th>
-            <th>기관</th>
-            <th>로그인ID</th>
-            <th>IP</th>
-            <th>로그인 일시</th>
-            <th>로그아웃 일시</th>
+            <th>기관명</th>
+            <th>아이디</th>
+            <th>사용자명</th>
+            <th>메일주소</th>
+            <th>전화번호</th>
+            <th>권한등급</th>
+            <th>SMS전송</th>
+            <th>기본언어</th>
           </tr>
         </thead>
         <tbody>
@@ -66,13 +66,16 @@ for (let index = 0; index < 10; index++) {
             </td>
             <td class="text-center">{{ item.agency }}</td>
             <td class="text-center">{{ item.userId }}</td>
-            <td class="text-center">{{ item.ip }}</td>
-            <td class="text-center">{{ item.loginTime }}</td>
-            <td class="text-center">{{ item.logoutTime }}</td>
+            <td class="text-center">{{ item.name }}</td>
+            <td class="text-center">{{ item.email }}</td>
+            <td class="text-center">{{ item.phone }}</td>
+            <td class="text-center">{{ item.authority }}</td>
+            <td class="text-center">{{ item.sms }}</td>
+            <td class="text-center">{{ item.language }}</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <v-pagination class="mt-8 px-5" rounded="circle" :length="6"></v-pagination>
+    <v-pagination class="mt-8" rounded="circle" :length="6"></v-pagination>
   </Layout>
 </template>

@@ -67,3 +67,10 @@ sub {
     @apply py-3 border-b border-[#e2e2e2];
   }
 }
+
+.router-link {
+  @apply inline-block font-bold text-sm text-[#555555];
+  &.router-link-active {
+    @apply text-[#0076ca] underline underline-offset-4;
+  }
+}

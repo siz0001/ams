@@ -4,12 +4,8 @@ import 'vuetify/styles'
 
 // Vuetify
 import { createVuetify } from 'vuetify'
-import { VBtn, VTextField } from 'vuetify/components'
 
 export default createVuetify({
-  components: {
-    VBtn
-  },
   defaults: {
     global: {
       ripple: true

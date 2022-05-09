@@ -15,9 +15,9 @@ for (let index = 0; index < 10; index++) {
 </script>
 
 <template>
-  <Layout title="로그인 이력 현황">
+  <Layout title="기관관리">
     <div
-      class="mt-[50px] px-10 flex flex-col gap-1 lg:flex-row lg:items-center lg:gap-1 justify-between bg-[#f3f9ff] py-6"
+      class="mt-[50px] px-10 flex items-center justify-between bg-[#f3f9ff] h-[90px]"
     >
       <div class="flex items-center space-x-2">
         <v-text-field
@@ -30,16 +30,10 @@ for (let index = 0; index < 10; index++) {
           hide-details="auto"
           shaped
         ></v-text-field>
-        <v-text-field
-          class="w-[220px] bg-white"
-          color="primary"
-          density="compact"
-          label="ID"
-          variant="outlined"
-          hide-details="auto"
-          shaped
-        ></v-text-field>
-        <v-btn flat color="black">조회<v-icon>mdi-magnify</v-icon> </v-btn>
+        <v-btn flat color="primary"
+          >조회<v-icon class="ml-1">mdi-magnify</v-icon>
+        </v-btn>
+        <v-btn flat color="white" class="border border-[#bfbfbf]">초기화</v-btn>
       </div>
       <div class="space-x-1">
         <v-btn flat color="white" class="border border-[#bfbfbf]">등록</v-btn>
@@ -73,6 +67,6 @@ for (let index = 0; index < 10; index++) {
         </tbody>
       </table>
     </div>
-    <v-pagination class="mt-8 px-5" rounded="circle" :length="6"></v-pagination>
+    <v-pagination class="mt-8" rounded="circle" :length="6"></v-pagination>
   </Layout>
 </template>

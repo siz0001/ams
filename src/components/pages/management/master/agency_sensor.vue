@@ -5,17 +5,20 @@ const datas = []
 for (let index = 0; index < 10; index++) {
   datas.push({
     id: String(index).padStart(4, '0'),
-    agency: '청파초등학교',
-    userId: 'admin',
-    ip: '192.168.0.1',
-    loginTime: '2020-01-01 00:00:00',
-    logoutTime: '2020-01-01 00:00:00'
+    organization: '-',
+    sensor: '-',
+    sensorEn: '-',
+    use: '유',
+    good: 60,
+    usually: 30,
+    bad: 40,
+    veryBad: 50
   })
 }
 </script>
 
 <template>
-  <Layout title="로그인 이력 현황">
+  <Layout title="기관 마스터 센서 관리">
     <div
       class="mt-[50px] px-10 flex flex-col gap-1 lg:flex-row lg:items-center lg:gap-1 justify-between bg-[#f3f9ff] py-6"
     >
@@ -30,16 +33,10 @@ for (let index = 0; index < 10; index++) {
           hide-details="auto"
           shaped
         ></v-text-field>
-        <v-text-field
-          class="w-[220px] bg-white"
-          color="primary"
-          density="compact"
-          label="ID"
-          variant="outlined"
-          hide-details="auto"
-          shaped
-        ></v-text-field>
-        <v-btn flat color="black">조회<v-icon>mdi-magnify</v-icon> </v-btn>
+        <v-btn flat color="primary">조회<v-icon>mdi-magnify</v-icon> </v-btn>
+        <v-btn flat color="white" class="border border-[#bfbfbf]"
+          >초기화
+        </v-btn>
       </div>
       <div class="space-x-1">
         <v-btn flat color="white" class="border border-[#bfbfbf]">등록</v-btn>
@@ -52,11 +49,14 @@ for (let index = 0; index < 10; index++) {
         <thead>
           <tr>
             <th class="w-[74px]">선택</th>
-            <th>기관</th>
-            <th>로그인ID</th>
-            <th>IP</th>
-            <th>로그인 일시</th>
-            <th>로그아웃 일시</th>
+            <th>기관명</th>
+            <th>센서명</th>
+            <th>센서명(영문)</th>
+            <th>사용유무</th>
+            <th>좋음</th>
+            <th>보통</th>
+            <th>나쁨</th>
+            <th>매우나쁨</th>
           </tr>
         </thead>
         <tbody>
@@ -64,15 +64,18 @@ for (let index = 0; index < 10; index++) {
             <td class="text-center">
               <input type="checkbox" class="form-checkbox" />
             </td>
-            <td class="text-center">{{ item.agency }}</td>
-            <td class="text-center">{{ item.userId }}</td>
-            <td class="text-center">{{ item.ip }}</td>
-            <td class="text-center">{{ item.loginTime }}</td>
-            <td class="text-center">{{ item.logoutTime }}</td>
+            <td class="text-center">{{ item.organization }}</td>
+            <td class="text-center">{{ item.sensor }}</td>
+            <td class="text-center">{{ item.sensorEn }}</td>
+            <td class="text-center">{{ item.use }}</td>
+            <td class="text-center">{{ item.good }}</td>
+            <td class="text-center">{{ item.usually }}</td>
+            <td class="text-center">{{ item.bad }}</td>
+            <td class="text-center">{{ item.veryBad }}</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <v-pagination class="mt-8 px-5" rounded="circle" :length="6"></v-pagination>
+    <v-pagination class="mt-8" rounded="circle" :length="6"></v-pagination>
   </Layout>
 </template>
