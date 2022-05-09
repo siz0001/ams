@@ -5,14 +5,11 @@ const datas = []
 for (let index = 0; index < 10; index++) {
   datas.push({
     id: String(index).padStart(4, '0'),
-    organization: '-',
     sensor: '-',
     sensorEn: '-',
-    use: '유',
-    good: 60,
-    usually: 30,
-    bad: 40,
-    veryBad: 50
+    model: '모델명',
+    code: '코드',
+    note: '비고'
   })
 }
 </script>
@@ -34,9 +31,6 @@ for (let index = 0; index < 10; index++) {
           shaped
         ></v-text-field>
         <v-btn flat color="primary">조회<v-icon>mdi-magnify</v-icon> </v-btn>
-        <v-btn flat color="white" class="border border-[#bfbfbf]"
-          >초기화
-        </v-btn>
       </div>
       <div class="space-x-1">
         <v-btn flat color="white" class="border border-[#bfbfbf]">등록</v-btn>
@@ -49,14 +43,11 @@ for (let index = 0; index < 10; index++) {
         <thead>
           <tr>
             <th class="w-[74px]">선택</th>
-            <th>기관명</th>
             <th>센서명</th>
             <th>센서명(영문)</th>
-            <th>사용유무</th>
-            <th>좋음</th>
-            <th>보통</th>
-            <th>나쁨</th>
-            <th>매우나쁨</th>
+            <th>모델명</th>
+            <th>코드</th>
+            <th>비고</th>
           </tr>
         </thead>
         <tbody>
@@ -64,10 +55,10 @@ for (let index = 0; index < 10; index++) {
             <td class="text-center">
               <input type="checkbox" class="form-checkbox" />
             </td>
-            <td class="text-center">{{ item.groupId }}</td>
-            <td class="text-center">{{ item.parentGroup }}</td>
-            <td class="text-center">{{ item.childGroup }}</td>
-            <td class="text-center">{{ item.createAt }}</td>
+            <td class="text-center">{{ item.sensor }}</td>
+            <td class="text-center">{{ item.sensorEn }}</td>
+            <td class="text-center">{{ item.model }}</td>
+            <td class="text-center">{{ item.code }}</td>
             <td class="text-center">{{ item.note }}</td>
           </tr>
         </tbody>

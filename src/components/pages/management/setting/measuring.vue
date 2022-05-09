@@ -6,19 +6,23 @@ for (let index = 0; index < 10; index++) {
   datas.push({
     id: String(index).padStart(4, '0'),
     agency: '청파초등학교',
-    measuring: '교실1',
-    sterilizer: `A${String(index).padStart(3, '0')}`,
-    everyone: 'ON',
-    operation: '자동',
-    fan: 5,
-    forced: 'ON',
-    sterilization: 'ON'
+    parentGroup: '상위',
+    childGroup: '하위',
+    ip: '127.0.0.1',
+    group: 'sa',
+    measuringCode: '코드',
+    measuringName: '-',
+    display: '무',
+    append: '유',
+    air: '-',
+    createAt: '22.03.22',
+    editedAd: '22.03.22'
   })
 }
 </script>
 
 <template>
-  <Layout title="공기살균정화기 관리">
+  <Layout title="측정기 관리">
     <div
       class="mt-[50px] px-10 flex items-center justify-between bg-[#f3f9ff] h-[90px]"
     >
@@ -49,22 +53,28 @@ for (let index = 0; index < 10; index++) {
         <v-btn flat color="white" class="border border-[#bfbfbf]">초기화</v-btn>
       </div>
       <div class="space-x-1">
-        <v-btn flat color="white" class="border border-[#bfbfbf]">관리</v-btn>
+        <v-btn flat color="white" class="border border-[#bfbfbf]">등록</v-btn>
+        <v-btn flat color="white" class="border border-[#bfbfbf]">수정</v-btn>
+        <v-btn flat color="white" class="border border-[#bfbfbf]">삭제</v-btn>
       </div>
     </div>
     <div class="overflow-x-auto">
-      <table class="table-basic mt-8 min-w-[980px]">
+      <table class="table-basic mt-8 min-w-[1280px]">
         <thead>
           <tr>
             <th class="w-[74px]">선택</th>
             <th>기관명</th>
+            <th>상위그룹</th>
+            <th>하위그룹</th>
+            <th>아이피</th>
+            <th>그룹명</th>
+            <th>측정기코드</th>
             <th>측정기명</th>
-            <th>공기살균정화기코드</th>
-            <th>전원</th>
-            <th>동작모드</th>
-            <th>팬속도</th>
-            <th>강제송풍</th>
-            <th>살균</th>
+            <th>표시유무</th>
+            <th>등록유무</th>
+            <th>공기살균정화기</th>
+            <th>수신일시</th>
+            <th>가등시작일</th>
           </tr>
         </thead>
         <tbody>
@@ -73,17 +83,21 @@ for (let index = 0; index < 10; index++) {
               <input type="checkbox" class="form-checkbox" />
             </td>
             <td class="text-center">{{ item.agency }}</td>
-            <td class="text-center">{{ item.measuring }}</td>
-            <td class="text-center">{{ item.sterilizer }}</td>
-            <td class="text-center">{{ item.everyone }}</td>
-            <td class="text-center">{{ item.operation }}</td>
-            <td class="text-center">{{ item.fan }}</td>
-            <td class="text-center">{{ item.forced }}</td>
-            <td class="text-center">{{ item.sterilization }}</td>
+            <td class="text-center">{{ item.parentGroup }}</td>
+            <td class="text-center">{{ item.childGroup }}</td>
+            <td class="text-center">{{ item.ip }}</td>
+            <td class="text-center">{{ item.group }}</td>
+            <td class="text-center">{{ item.measuringCode }}</td>
+            <td class="text-center">{{ item.measuringName }}</td>
+            <td class="text-center">{{ item.display }}</td>
+            <td class="text-center">{{ item.append }}</td>
+            <td class="text-center">{{ item.air }}</td>
+            <td class="text-center">{{ item.createAt }}</td>
+            <td class="text-center">{{ item.editedAd }}</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <v-pagination class="mt-8" rounded="circle" :length="6"></v-pagination>
+    <v-pagination class="mt-8" rounded="circle" :length="10"></v-pagination>
   </Layout>
 </template>

@@ -57,7 +57,7 @@
             color="primary"
             size="x-large"
             rounded="pill"
-            @click="$router.push('/loginHistory')"
+            @click="$router.push('/management/user/ilizer')"
             >로그인</v-btn
           >
         </div>

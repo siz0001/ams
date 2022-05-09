@@ -5,20 +5,16 @@ const datas = []
 for (let index = 0; index < 10; index++) {
   datas.push({
     id: String(index).padStart(4, '0'),
-    agency: '청파초등학교',
-    measuring: '교실1',
-    sterilizer: `A${String(index).padStart(3, '0')}`,
-    everyone: 'ON',
-    operation: '자동',
-    fan: 5,
-    forced: 'ON',
-    sterilization: 'ON'
+    code: 'A001',
+    model: 'model name',
+    specification: '사양',
+    note: '비고'
   })
 }
 </script>
 
 <template>
-  <Layout title="공기살균정화기 관리">
+  <Layout title="마스터공기살균정화기 관리">
     <div
       class="mt-[50px] px-10 flex items-center justify-between bg-[#f3f9ff] h-[90px]"
     >
@@ -57,14 +53,10 @@ for (let index = 0; index < 10; index++) {
         <thead>
           <tr>
             <th class="w-[74px]">선택</th>
-            <th>기관명</th>
-            <th>측정기명</th>
             <th>공기살균정화기코드</th>
-            <th>전원</th>
-            <th>동작모드</th>
-            <th>팬속도</th>
-            <th>강제송풍</th>
-            <th>살균</th>
+            <th>모델명</th>
+            <th>사양</th>
+            <th>비고</th>
           </tr>
         </thead>
         <tbody>
@@ -72,14 +64,10 @@ for (let index = 0; index < 10; index++) {
             <td class="text-center">
               <input type="checkbox" class="form-checkbox" />
             </td>
-            <td class="text-center">{{ item.agency }}</td>
-            <td class="text-center">{{ item.measuring }}</td>
-            <td class="text-center">{{ item.sterilizer }}</td>
-            <td class="text-center">{{ item.everyone }}</td>
-            <td class="text-center">{{ item.operation }}</td>
-            <td class="text-center">{{ item.fan }}</td>
-            <td class="text-center">{{ item.forced }}</td>
-            <td class="text-center">{{ item.sterilization }}</td>
+            <td class="text-center">{{ item.code }}</td>
+            <td class="text-center">{{ item.model }}</td>
+            <td class="text-center">{{ item.specification }}</td>
+            <td class="text-center">{{ item.note }}</td>
           </tr>
         </tbody>
       </table>

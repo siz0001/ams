@@ -26,17 +26,20 @@ const menus = [
         key: 'master',
         children: [
           {
-            title: 'Local 서버'
+            title: 'Local 서버',
+            href: '/local'
           },
           {
-            title: '마스터 센서 관리'
+            title: '마스터 센서 관리',
+            href: '/msensor'
           },
           {
-            title: '마스터공기살균정화기 관리'
+            title: '마스터공기살균정화기 관리',
+            href: '/sterilizer'
           },
           {
             title: '기관 마스터 센서 관리',
-            href: '/agencysensor'
+            href: '/asensor'
           }
         ]
       },
@@ -45,10 +48,12 @@ const menus = [
         key: 'setting',
         children: [
           {
-            title: '측정기 관리'
+            title: '측정기 관리',
+            href: '/measuring'
           },
           {
-            title: '측정기 센서 관리'
+            title: '측정기 센서 관리',
+            href: '/sensor'
           },
           {
             title: '그룹 관리',
@@ -65,13 +70,16 @@ const menus = [
         key: 'error',
         children: [
           {
-            title: '실시간 장애 현황'
+            title: '실시간 장애 현황',
+            href: '/liveerror'
           },
           {
-            title: '장애 관리'
+            title: '장애 관리',
+            href: '/error'
           },
           {
-            title: '로그인 이력 현황'
+            title: '로그인 이력 현황',
+            href: '/history'
           }
         ]
       }
@@ -80,32 +88,20 @@ const menus = [
   {
     title: '모니터링',
     href: '/monitoring',
-    icon: 'mdi-monitor-eye',
-    children: [
-      {
-        title: '기관 전체 센서별 현황'
-      },
-      {
-        title: '그룹 전체 그룹별 현황'
-      },
-      {
-        title: '그룹 소속 측정기별 현황'
-      },
-      {
-        title: '측정기 개별 센서 현황'
-      }
-    ]
+    icon: 'mdi-monitor-eye'
   },
   {
     title: '현황',
-    href: '/current',
+    href: '',
     icon: 'mdi-chart-bar',
     children: [
       {
         title: '현황',
+        key: 'current',
         children: [
           {
-            title: '미등록 현황'
+            title: '미등록 현황',
+            href: '/unregistered'
           },
           {
             title: '측정기 현황'

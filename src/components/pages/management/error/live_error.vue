@@ -5,20 +5,22 @@ const datas = []
 for (let index = 0; index < 10; index++) {
   datas.push({
     id: String(index).padStart(4, '0'),
-    agency: '청파초등학교',
-    measuring: '교실1',
-    sterilizer: `A${String(index).padStart(3, '0')}`,
-    everyone: 'ON',
-    operation: '자동',
-    fan: 5,
-    forced: 'ON',
-    sterilization: 'ON'
+    asensor: '청파초등학교',
+    measuring: '1234',
+    sensor: 'sa',
+    notification: '알림내용',
+    ip: '127.0.0.1',
+    disability: '장애',
+    createAt: '22.03.22',
+    updateAt: '22.03.22',
+    registrant: '홍길동/홍길동',
+    status: '발생'
   })
 }
 </script>
 
 <template>
-  <Layout title="공기살균정화기 관리">
+  <Layout title="실시간 장애 현황">
     <div
       class="mt-[50px] px-10 flex items-center justify-between bg-[#f3f9ff] h-[90px]"
     >
@@ -49,7 +51,9 @@ for (let index = 0; index < 10; index++) {
         <v-btn flat color="white" class="border border-[#bfbfbf]">초기화</v-btn>
       </div>
       <div class="space-x-1">
-        <v-btn flat color="white" class="border border-[#bfbfbf]">관리</v-btn>
+        <v-btn flat color="white" class="border border-[#bfbfbf]">등록</v-btn>
+        <v-btn flat color="white" class="border border-[#bfbfbf]">수정</v-btn>
+        <v-btn flat color="white" class="border border-[#bfbfbf]">삭제</v-btn>
       </div>
     </div>
     <div class="overflow-x-auto">
@@ -57,14 +61,16 @@ for (let index = 0; index < 10; index++) {
         <thead>
           <tr>
             <th class="w-[74px]">선택</th>
-            <th>기관명</th>
-            <th>측정기명</th>
-            <th>공기살균정화기코드</th>
-            <th>전원</th>
-            <th>동작모드</th>
-            <th>팬속도</th>
-            <th>강제송풍</th>
-            <th>살균</th>
+            <th>기관</th>
+            <th>측정기</th>
+            <th>센서</th>
+            <th>알림내용</th>
+            <th>IP</th>
+            <th>장애등급</th>
+            <th>발생일시</th>
+            <th>해제일시</th>
+            <th>등록자/해제자</th>
+            <th>상태</th>
           </tr>
         </thead>
         <tbody>
@@ -72,14 +78,16 @@ for (let index = 0; index < 10; index++) {
             <td class="text-center">
               <input type="checkbox" class="form-checkbox" />
             </td>
-            <td class="text-center">{{ item.agency }}</td>
+            <td class="text-center">{{ item.asensor }}</td>
             <td class="text-center">{{ item.measuring }}</td>
-            <td class="text-center">{{ item.sterilizer }}</td>
-            <td class="text-center">{{ item.everyone }}</td>
-            <td class="text-center">{{ item.operation }}</td>
-            <td class="text-center">{{ item.fan }}</td>
-            <td class="text-center">{{ item.forced }}</td>
-            <td class="text-center">{{ item.sterilization }}</td>
+            <td class="text-center">{{ item.sensor }}</td>
+            <td class="text-center">{{ item.notification }}</td>
+            <td class="text-center">{{ item.ip }}</td>
+            <td class="text-center">{{ item.disability }}</td>
+            <td class="text-center">{{ item.createAt }}</td>
+            <td class="text-center">{{ item.updateAt }}</td>
+            <td class="text-center">{{ item.registrant }}</td>
+            <td class="text-center">{{ item.status }}</td>
           </tr>
         </tbody>
       </table>
