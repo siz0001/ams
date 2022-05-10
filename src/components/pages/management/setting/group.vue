@@ -1,10 +1,15 @@
 <script setup>
+import { ref } from 'vue'
 import Layout from '@/components/layout/index.vue'
 
+const dialog = ref(false)
 const datas = []
 for (let index = 0; index < 10; index++) {
   datas.push({
     id: String(index).padStart(4, '0'),
+    ip: '127.0.0.1',
+    measuringCode: '001',
+    measuringName: '교실1',
     groupId: '12345',
     parentGroup: '1학년',
     childGroup: '2학년',
@@ -63,7 +68,7 @@ for (let index = 0; index < 10; index++) {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in datas" :key="item.id">
+          <tr v-for="item in datas" :key="item.id" @click="dialog = true">
             <td class="text-center">
               <input type="checkbox" class="form-checkbox" />
             </td>
@@ -77,5 +82,72 @@ for (let index = 0; index < 10; index++) {
       </table>
     </div>
     <v-pagination class="mt-8" rounded="circle" :length="6"></v-pagination>
+    <v-dialog v-model="dialog">
+      <div class="min-w-[600px]">
+        <div
+          class="bg-[#1b53a0] h-[80px] flex items-center justify-between pl-[50px] px-[38px]"
+        >
+          <div class="text-xl text-white font-bold">그룹 관리</div>
+          <a class="cursor-pointer text-white p-2" @click="dialog = false">
+            <v-icon>mdi-close</v-icon>
+          </a>
+        </div>
+        <div class="bg-white px-[50px] py-[30px]">
+          <div class="bg-[#f3f9ff] px-5 flex items-center space-x-2 h-[88px]">
+            <v-text-field
+              color="primary"
+              label="상위그룹"
+              variant="outlined"
+              hide-details="auto"
+            ></v-text-field>
+            <v-text-field
+              color="primary"
+              label="하위그룹"
+              variant="outlined"
+              hide-details="auto"
+            ></v-text-field>
+          </div>
+          <table class="table-basic mt-8">
+            <thead>
+              <tr>
+                <th class="w-[74px]">선택</th>
+                <th>아이피</th>
+                <th>측정기코드</th>
+                <th>측정기명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in datas.slice(0, 5)" :key="item.id">
+                <td class="text-center">
+                  <input type="checkbox" class="form-checkbox" />
+                </td>
+                <td class="text-center">{{ item.ip }}</td>
+                <td class="text-center">{{ item.measuringCode }}</td>
+                <td class="text-center">{{ item.measuringName }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="mt-[30px] flex space-x-2">
+            <v-btn
+              color="#1b53a0"
+              variant="outlined"
+              size="x-large"
+              class="flex-1 font-bold"
+            >
+              저장
+            </v-btn>
+            <v-btn
+              color="#dedede"
+              variant="outlined"
+              size="x-large"
+              class="text-black flex-1 font-bold"
+              @click="dialog = false"
+            >
+              취소
+            </v-btn>
+          </div>
+        </div>
+      </div>
+    </v-dialog>
   </Layout>
 </template>

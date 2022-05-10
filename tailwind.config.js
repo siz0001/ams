@@ -16,11 +16,12 @@ module.exports = {
           'url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-4 -4 8 8%22%3E%3Ccircle r=%222%22 fill=%22%23fff%22/%3E%3C/svg%3E")'
       },
       backgroundPosition: {
-        search: '95% center',
+        search: '90% center',
         18: 'center 18px'
       },
       backgroundSize: {
         0: '0',
+        13: '13px',
         full: '100%'
       },
       colors: {

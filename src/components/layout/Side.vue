@@ -6,9 +6,9 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 
-function activeClass(href) {
+function activeClass({ href, key }) {
   return cn(
-    { 'bg-[#1b53a0] border border-white': route.path.startsWith(href) },
+    { 'bg-[#1b53a0] border border-white': route.path.includes(href || key) },
     'flex flex-1 items-center font-bold h-[60px] pl-3'
   )
 }
@@ -19,6 +19,10 @@ onMounted(() => {
     btns[index].addEventListener('click', function () {
       const btn = btns[index].className.includes('active')
       btns[index].classList.toggle('active')
+      btns[index].children[0].className = cn(
+        btn ? 'mdi-plus' : 'mdi-minus',
+        'mdi v-icon notranslate v-theme--myCustomLightTheme'
+      )
       this.parentElement.parentElement.querySelector('.childMenu').className =
         cn(btn ? 'hidden' : 'block', 'bg-white mb-[10px] childMenu')
     })
@@ -34,16 +38,25 @@ onMounted(() => {
       <div
         class="text-white border-b border-solid !border-[#268ad2] relative"
         v-for="item in menus"
-        :key="item.href"
+        :key="item.key"
       >
         <div
           class="flex items-center justify-between"
-          :class="activeClass(item.href)"
+          :class="activeClass(item)"
         >
-          <router-link :to="item.href" tag="a">
-            <v-icon class="mr-4" size="18">{{ item.icon }}</v-icon
-            >{{ item.title }}
+          <router-link
+            v-if="item.children === undefined"
+            tag="a"
+            class="flex-1"
+            :to="item.href"
+          >
+            <v-icon class="mr-4" size="18">{{ item.icon }}</v-icon>
+            {{ item.title }}
           </router-link>
+          <span v-else class="flex-1">
+            <v-icon class="mr-4" size="18">{{ item.icon }}</v-icon>
+            {{ item.title }}
+          </span>
           <a class="p-3 cursor-pointer toggleBtn" v-if="item.children">
             <v-icon size="16">mdi-plus</v-icon>
           </a>
@@ -60,7 +73,7 @@ onMounted(() => {
             <div class="space-y-1">
               <div v-for="inner of children.children">
                 <router-link
-                  :to="`${item.href}/${children.key}${inner.href}`"
+                  :to="`/${item.key}/${children.key}${inner.href}`"
                   class="router-link"
                   >{{ inner.title }}</router-link
                 >

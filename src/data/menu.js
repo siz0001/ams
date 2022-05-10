@@ -1,7 +1,7 @@
 const menus = [
   {
     title: '관리',
-    href: '/management',
+    key: 'management',
     icon: 'mdi-application-cog',
     children: [
       {
@@ -88,11 +88,12 @@ const menus = [
   {
     title: '모니터링',
     href: '/monitoring',
+    key: 'monitoring',
     icon: 'mdi-monitor-eye'
   },
   {
     title: '현황',
-    href: '',
+    key: 'current',
     icon: 'mdi-chart-bar',
     children: [
       {
@@ -119,6 +120,7 @@ const menus = [
   {
     title: '도움말',
     href: '/help',
+    key: 'help',
     icon: 'mdi-alert-circle-check-outline'
   }
 ]

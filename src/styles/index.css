@@ -64,7 +64,7 @@ sub {
     @apply font-bold h-[53px] border-b border-[#e2e2e2] px-6;
   }
   tbody td {
-    @apply py-3 border-b border-[#e2e2e2];
+    @apply py-3 px-1 border-b border-[#e2e2e2];
   }
 }
 

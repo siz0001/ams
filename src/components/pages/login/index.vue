@@ -57,7 +57,7 @@
             color="primary"
             size="x-large"
             rounded="pill"
-            @click="$router.push('/management/user/ilizer')"
+            @click="$router.push('/management/user/institutional')"
             >로그인</v-btn
           >
         </div>

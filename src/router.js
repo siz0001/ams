@@ -21,7 +21,7 @@ import Error from '@/components/pages/management/error/error.vue'
 import LoginHistory from '@/components/pages/management/error/login_history.vue'
 
 // 현황
-import Unregistered from '@/components/pages/current/unregistered.vue'
+import Unregistered from '@/components/pages/current/current/unregistered.vue'
 
 const routes = [
   {
@@ -100,7 +100,7 @@ const routes = [
     component: Monitoring
   },
   {
-    path: '/current/unregistered',
+    path: '/current/current/unregistered',
     name: 'Unregistered',
     component: Unregistered
   }

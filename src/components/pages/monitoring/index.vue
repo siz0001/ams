@@ -1,6 +1,8 @@
 <script setup>
 import Layout from '@/components/layout/index.vue'
 
+const selectMenu = ['전체', '그룹', '1학년', '2학년', '3학년']
+const selectMenu2 = ['전체', '그룹', '측정기1', '측정기2', '측정기3']
 const Measure = [
   {
     id: 0,
@@ -147,13 +149,32 @@ function minusValue(num) {
 <template>
   <Layout title="모니터링">
     <div class="h-[50px] flex items-center justify-end">
-      <div class="text-sm">
+      <div class="text-sm flex items-center">
         <v-icon size="16" class="mr-1">mdi-clock-outline</v-icon>업데이트 시간 :
         2022.03.02 16:18
       </div>
     </div>
-    <div class="px-10 flex items-center justify-between bg-[#f3f9ff] h-[90px]">
-      <div class="flex items-center space-x-2"></div>
+    <div class="px-4 flex items-center justify-between bg-[#f3f9ff] h-[90px]">
+      <div class="flex items-center space-x-2">
+        <v-select
+          :items="selectMenu"
+          label="전체그룹 상위그룹명"
+          hide-details="auto"
+          class="min-w-[200px]"
+        ></v-select>
+        <v-select
+          :items="selectMenu"
+          label="전체그룹 하위그룹명"
+          hide-details="auto"
+          class="min-w-[200px]"
+        ></v-select>
+        <v-select
+          :items="selectMenu2"
+          label="전체그룹 측정기명"
+          hide-details="auto"
+          class="min-w-[200px]"
+        ></v-select>
+      </div>
     </div>
     <div class="grid grid-cols-12 gap-8 mt-[30px]">
       <div
@@ -161,9 +182,10 @@ function minusValue(num) {
       >
         <div class="border-[3px] border-[#0075c9] p-[30px] -space-x-[1px]">
           <div class="inline-flex items-center text-xl font-bold">
-            <v-icon size="20" color="#0098ff" class="mr-1"
-              >mdi-clipboard-text-search-outline</v-icon
-            >장치 현황
+            <v-icon size="20" color="#0098ff" class="mr-1">
+              mdi-clipboard-text-search-outline
+            </v-icon>
+            장치 현황
           </div>
           <div class="space-y-[2px] mt-5">
             <div
@@ -190,6 +212,14 @@ function minusValue(num) {
               <div class="font-bold">공기살균정화기</div>
               <div class="text-3xl font-system font-black">8</div>
             </div>
+          </div>
+        </div>
+        <div class="border-[3px] border-[#0075c9] p-[30px] -space-x-[1px]">
+          <div class="inline-flex items-center text-xl font-bold">
+            <v-icon size="20" color="#0098ff" class="mr-1"
+              >mdi-chart-line</v-icon
+            >
+            공기질 지수 그래프
           </div>
         </div>
       </div>
