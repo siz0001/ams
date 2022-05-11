@@ -111,7 +111,8 @@ const menus = [
             title: '센서 평균 현황'
           },
           {
-            title: '센서 기간별 현황'
+            title: '센서 기간별 현황',
+            href: '/sensorperiod'
           }
         ]
       }

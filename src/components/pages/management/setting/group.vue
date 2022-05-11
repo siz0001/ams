@@ -127,7 +127,7 @@ for (let index = 0; index < 10; index++) {
               </tr>
             </tbody>
           </table>
-          <div class="mt-[30px] flex space-x-2">
+          <div class="mt-[30px] flex space-x-[10px]">
             <v-btn
               color="#1b53a0"
               variant="outlined"

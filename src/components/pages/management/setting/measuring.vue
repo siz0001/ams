@@ -1,5 +1,9 @@
 <script setup>
+import { ref } from 'vue'
 import Layout from '@/components/layout/index.vue'
+
+const dialog = ref(false)
+const dialog2 = ref(false)
 
 const datas = []
 for (let index = 0; index < 10; index++) {
@@ -53,7 +57,13 @@ for (let index = 0; index < 10; index++) {
         <v-btn flat color="white" class="border border-[#bfbfbf]">초기화</v-btn>
       </div>
       <div class="space-x-1">
-        <v-btn flat color="white" class="border border-[#bfbfbf]">등록</v-btn>
+        <v-btn
+          flat
+          color="white"
+          class="border border-[#bfbfbf]"
+          @click="dialog = true"
+          >등록</v-btn
+        >
         <v-btn flat color="white" class="border border-[#bfbfbf]">수정</v-btn>
         <v-btn flat color="white" class="border border-[#bfbfbf]">삭제</v-btn>
       </div>
@@ -98,6 +108,162 @@ for (let index = 0; index < 10; index++) {
         </tbody>
       </table>
     </div>
+    <v-dialog v-model="dialog">
+      <div class="min-w-[950px]">
+        <div
+          class="bg-[#1b53a0] h-[80px] flex items-center justify-between pl-[50px] px-[38px]"
+        >
+          <div class="text-xl text-white font-bold">측정기 관리</div>
+          <a class="cursor-pointer text-white p-2" @click="dialog = false">
+            <v-icon>mdi-close</v-icon>
+          </a>
+        </div>
+        <div class="bg-white px-[50px] py-[30px]">
+          <div class="space-y-[10px]">
+            <div class="flex items-center space-x-[10px]">
+              <v-text-field
+                color="primary"
+                label="상위그룹"
+                variant="outlined"
+                hide-details="auto"
+                class="flex-1"
+              ></v-text-field>
+              <v-text-field
+                color="primary"
+                label="하위그룹"
+                variant="outlined"
+                hide-details="auto"
+                class="flex-1"
+              ></v-text-field>
+            </div>
+            <div class="flex items-center space-x-[10px]">
+              <v-text-field
+                color="primary"
+                label="아이피"
+                variant="outlined"
+                hide-details="auto"
+                class="flex-1"
+              ></v-text-field>
+              <v-text-field
+                color="primary"
+                label="측정기코드"
+                variant="outlined"
+                hide-details="auto"
+                class="flex-1"
+              ></v-text-field>
+            </div>
+            <div class="flex items-center space-x-[10px]">
+              <v-text-field
+                color="primary"
+                label="측정기명"
+                variant="outlined"
+                hide-details="auto"
+                class="flex-1"
+              ></v-text-field>
+              <v-select
+                label="표시유무"
+                hide-details="auto"
+                class="flex-1"
+              ></v-select>
+            </div>
+            <div class="flex items-center space-x-[10px]">
+              <v-select
+                label="공기살균정화기"
+                hide-details="auto"
+                class="flex-1"
+              ></v-select>
+              <div class="flex flex-1 space-x-1 items-center">
+                <v-text-field
+                  color="primary"
+                  label="공기살균정화기"
+                  variant="outlined"
+                  hide-details="auto"
+                  class="flex-1"
+                ></v-text-field>
+                <v-btn
+                  color="#1b53a0"
+                  size="large"
+                  class="text-white !h-[56px]"
+                  @click="dialog2 = true"
+                >
+                  선택하기
+                </v-btn>
+              </div>
+            </div>
+          </div>
+          <div class="mt-[30px] flex space-x-[10px]">
+            <v-btn
+              color="#1b53a0"
+              variant="outlined"
+              size="x-large"
+              class="flex-1 font-bold"
+            >
+              저장
+            </v-btn>
+            <v-btn
+              color="#dedede"
+              variant="outlined"
+              size="x-large"
+              class="text-black flex-1 font-bold"
+              @click="dialog = false"
+            >
+              취소
+            </v-btn>
+          </div>
+        </div>
+      </div>
+    </v-dialog>
+    <v-dialog v-model="dialog2">
+      <div class="min-w-[600px]">
+        <div
+          class="bg-[#1b53a0] h-[80px] flex items-center justify-between pl-[50px] px-[38px]"
+        >
+          <div class="text-xl text-white font-bold">공기살균정화기 선택</div>
+          <a class="cursor-pointer text-white p-2" @click="dialog = false">
+            <v-icon>mdi-close</v-icon>
+          </a>
+        </div>
+        <div class="bg-white px-[50px] py-[30px]">
+          <table class="table-basic">
+            <thead>
+              <tr>
+                <th class="w-[74px]">선택</th>
+                <th>공기살균정화기 코드</th>
+                <th>모델명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in datas.slice(0, 5)" :key="item.id">
+                <td class="text-center">
+                  <input type="checkbox" class="form-checkbox" />
+                </td>
+                <td class="text-center">1</td>
+                <td class="text-center">2</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="mt-[30px] flex space-x-[10px]">
+            <v-btn
+              color="#1b53a0"
+              variant="outlined"
+              size="x-large"
+              class="flex-1 font-bold"
+            >
+              저장
+            </v-btn>
+            <v-btn
+              color="#dedede"
+              variant="outlined"
+              size="x-large"
+              class="text-black flex-1 font-bold"
+              @click="dialog = false"
+            >
+              취소
+            </v-btn>
+          </div>
+        </div>
+      </div>
+    </v-dialog>
     <v-pagination class="mt-8" rounded="circle" :length="10"></v-pagination>
   </Layout>
 </template>

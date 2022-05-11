@@ -67,7 +67,9 @@ onMounted(() => {
             v-for="children of item.children"
             :key="children.key"
           >
-            <div class="flex-none text-base w-[90px] font-bold text-[#3b92e5]">
+            <div
+              class="flex-none text-base w-[90px] pr-10 font-bold text-[#3b92e5]"
+            >
               {{ children.title }}
             </div>
             <div class="space-y-1">

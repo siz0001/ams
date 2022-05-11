@@ -1,8 +1,9 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import Side from '@/components/layout/Side.vue'
 
 const dialog = ref(false)
+const fullScreen = ref(true)
 
 const { title } = defineProps({
   title: String
@@ -11,8 +12,10 @@ const { title } = defineProps({
 function fullscreen() {
   if (!document.fullscreenElement) {
     document.querySelector('#app').requestFullscreen()
+    fullScreen.value = false
   } else {
     document.exitFullscreen()
+    fullScreen.value = true
   }
 }
 </script>
@@ -20,14 +23,18 @@ function fullscreen() {
 <template>
   <div class="min-h-full flex">
     <div
+      v-if="fullScreen"
       class="min-h-full w-[280px] flex-none bg-[#0076ca] overflow-auto hidden xl:block"
     >
       <Side />
     </div>
     <div class="bg-white w-[calc(100%-280px)] py-6 flex-1 !px-4 sm:!px-8">
       <div class="flex items-center justify-between">
-        <div class="tex-base lg:text-3xl">
-          청파초등학교<span class="w-2 h-2 mx-2 bg-[#1b53a0]"></span>{{ title }}
+        <div class="flex items-center tex-base lg:text-3xl">
+          청파초등학교<span
+            class="inline-block w-2 h-2 mx-2 bg-[#1b53a0]"
+          ></span
+          >{{ title }}
         </div>
         <div class="flex items-center">
           <!-- <v-btn color="indigo" icon="mdi-fullscreen"></v-btn>

@@ -22,6 +22,7 @@ import LoginHistory from '@/components/pages/management/error/login_history.vue'
 
 // 현황
 import Unregistered from '@/components/pages/current/current/unregistered.vue'
+import Sensorperiod from '@/components/pages/current/current/sensorperiod.vue'
 
 const routes = [
   {
@@ -103,6 +104,11 @@ const routes = [
     path: '/current/current/unregistered',
     name: 'Unregistered',
     component: Unregistered
+  },
+  {
+    path: '/current/current/sensorperiod',
+    name: 'Sensorperiod',
+    component: Sensorperiod
   }
 ]
 
