@@ -1,6 +1,7 @@
 import { createWebHistory, createRouter } from 'vue-router'
 import Login from '@/components/pages/login/index.vue'
 import Monitoring from '@/components/pages/monitoring/index.vue'
+import Monitoring2 from '@/components/pages/monitoring/monitoring2.vue'
 // 관리-USER 관리
 import Institutional from '@/components/pages/management/user/institutional.vue'
 import User from '@/components/pages/management/user/user.vue'
@@ -99,6 +100,11 @@ const routes = [
     path: '/monitoring',
     name: 'Monitoring',
     component: Monitoring
+  },
+  {
+    path: '/monitoring2',
+    name: 'Monitoring2',
+    component: Monitoring2
   },
   {
     path: '/current/current/unregistered',

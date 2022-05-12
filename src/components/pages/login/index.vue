@@ -3,7 +3,7 @@
     class="max-w-[1620px] mx-auto min-h-screen p-0 bg-[url('/img/bg.jpg')] bg-no-repeat bg-top overflow-auto after:h-[350px] after:absolute after:top-0 after:left-0 after:right-0 after:bg-[#0076ca] after:-z-10"
   >
     <div
-      class="mt-[60px] after:w-[10px] after:h-[20px] after:bg-black leading-0"
+      class="mt-[60px] after:w-[10px] px-10 after:h-[20px] after:bg-black leading-0"
     >
       <img src="/img/chungpa.png" alt="" />
     </div>
