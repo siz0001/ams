@@ -124,11 +124,11 @@ function fullscreen() {
                 hide-details="auto"
               ></v-text-field>
               <span class="px-2">@</span>
-              <v-select
-                label="gmail.com"
-                hide-details="auto"
-                class="min-w-[200px] flex-none"
-              ></v-select>
+              <select
+                class="form-select !w-[200px] flex-none !h-[56px] !border-[#909090]"
+              >
+                <option value="">gmail.com</option>
+              </select>
               <v-text-field
                 color="primary"
                 label="직접입력"
@@ -138,11 +138,9 @@ function fullscreen() {
               ></v-text-field>
             </div>
             <div class="flex">
-              <v-select
-                label="언어선택"
-                hide-details="auto"
-                class="w-1/2 flex-none"
-              ></v-select>
+              <select class="form-select !h-[56px] !border-[#909090]">
+                <option value="">언어선택</option>
+              </select>
             </div>
             <div class="pt-[20px]">
               <v-btn

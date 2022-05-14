@@ -53,10 +53,16 @@ sub {
     color: white;
   }
 }
-
+/* Select */
+.form-select {
+  @apply appearance-none block w-full px-3 h-10 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-[4px] focus:outline-none bg-[url(/img/icon-down.svg)] bg-no-repeat bg-[length:15px_15px] bg-search;
+}
 /* Checkbox */
 .form-checkbox {
   @apply appearance-none w-5 h-5 rounded-sm align-top bg-white border border-solid border-[#999999] bg-checkbox-bg bg-no-repeat bg-0 focus:outline-none cursor-pointer shadow-sm checked:bg-right checked:border-0 checked:bg-[#1b53a0] checked:bg-full transition-all;
+}
+.form-input {
+  @apply appearance-none block w-[150px] px-3 h-10 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-[4px];
 }
 .table-basic {
   @apply w-full border-t-2 border-[#0076ca] text-sm;

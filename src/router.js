@@ -23,6 +23,8 @@ import LoginHistory from '@/components/pages/management/error/login_history.vue'
 
 // 현황
 import Unregistered from '@/components/pages/current/current/unregistered.vue'
+import Instrument from '@/components/pages/current/current/instrument.vue'
+import Average from '@/components/pages/current/current/average.vue'
 import Sensorperiod from '@/components/pages/current/current/sensorperiod.vue'
 
 const routes = [
@@ -110,6 +112,16 @@ const routes = [
     path: '/current/current/unregistered',
     name: 'Unregistered',
     component: Unregistered
+  },
+  {
+    path: '/current/current/instrument',
+    name: 'Instrument',
+    component: Instrument
+  },
+  {
+    path: '/current/current/average',
+    name: 'Average',
+    component: Average
   },
   {
     path: '/current/current/sensorperiod',

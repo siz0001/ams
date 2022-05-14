@@ -214,12 +214,81 @@ function minusValue(num) {
             </div>
           </div>
         </div>
-        <div class="border-[3px] border-[#0075c9] p-[30px] -space-x-[1px]">
+
+        <div
+          class="border-[3px] border-[#0075c9] p-[30px] -space-x-[1px] bg-[#f7fbfe]"
+        >
           <div class="inline-flex items-center text-xl font-bold">
             <v-icon size="20" color="#0098ff" class="mr-1"
               >mdi-chart-line</v-icon
             >
             공기질 지수 그래프
+          </div>
+          <div class="mt-5">
+            <img src="/img/sample_chart2.jpg" alt="" />
+          </div>
+          <div class="mt-5 bg-[#f7fbfe]">
+            <div
+              class="border !border-blue bg-white px-3 py-1 flex leading-[30px]"
+            >
+              <div class="flex-1 text-[15px] text-[#2359c4] font-bold">
+                오늘 공기지수 평균
+              </div>
+              <div class="text-[15px] font-bold">85</div>
+              <div class="ml-2 !bg-blue text-white w-[52px] text-center">
+                좋음
+              </div>
+            </div>
+            <div
+              class="border-b !border-[#ebeff3] px-3 py-1 flex leading-[30px]"
+            >
+              <div class="flex-1 text-[15px] font-bold">
+                1주전 공기지수 평균
+              </div>
+              <div class="text-[15px] font-bold">82</div>
+              <div class="ml-2 !bg-blue text-white w-[52px] text-center"></div>
+            </div>
+            <div
+              class="border-b !border-[#ebeff3] px-3 py-1 flex leading-[30px]"
+            >
+              <div class="flex-1 text-[15px] font-bold">
+                2주전 공기지수 평균
+              </div>
+              <div class="text-[15px] font-bold">85</div>
+              <div class="ml-2 !bg-blue text-white w-[52px] text-center"></div>
+            </div>
+            <div
+              class="border-b !border-[#ebeff3] px-3 py-1 flex leading-[30px]"
+            >
+              <div class="flex-1 text-[15px] font-bold">
+                3주전 공기지수 평균
+              </div>
+              <div class="text-[15px] font-bold">78</div>
+              <div class="ml-2 !bg-green text-white w-[52px] text-center"></div>
+            </div>
+          </div>
+          <div class="text-base font-bold mt-[30px]">지수등급</div>
+          <div class="flex mt-3">
+            <div
+              class="flex-1 !bg-blue text-center text-xs leading-[35px] text-white"
+            >
+              좋음
+            </div>
+            <div
+              class="flex-1 !bg-green text-center text-xs leading-[35px] text-white"
+            >
+              보통
+            </div>
+            <div
+              class="flex-1 !bg-yellow text-center text-xs leading-[35px] text-white"
+            >
+              나쁨
+            </div>
+            <div
+              class="flex-1 !bg-red text-center text-xs leading-[35px] text-white"
+            >
+              매우나쁨
+            </div>
           </div>
         </div>
       </div>
