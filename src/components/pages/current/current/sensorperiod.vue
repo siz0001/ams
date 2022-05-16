@@ -14,7 +14,7 @@ for (let index = 0; index < 10; index++) {
 }
 onMounted(() => {
   const ctx = document.getElementById('myChart')
-  const lineChart = new Chart(ctx, {
+  new Chart(ctx, {
     type: 'line',
     data: {
       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],

@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted } from 'vue'
 import Layout from '@/components/layout/index.vue'
 
 const selectMenu = ['전체', '그룹', '1학년', '2학년', '3학년']
@@ -136,6 +137,33 @@ function minusValue(num) {
     return 15
   }
 }
+
+onMounted(() => {
+  const ctx = document.getElementById('myChart')
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [
+        {
+          label: '지수',
+          data: [12, 19, 3, 5, 2, 3],
+          backgroundColor: ['rgb(27, 83, 160)'],
+          borderColor: ['rgb(27, 83, 160)'],
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top'
+        }
+      }
+    }
+  })
+})
 </script>
 
 <template>
@@ -182,8 +210,8 @@ function minusValue(num) {
             <v-icon size="20" color="#0098ff" class="mr-1">mdi-chart-line</v-icon>
             공기질 지수 그래프
           </div>
-          <div class="mt-5">
-            <img src="/img/sample_chart2.jpg" alt="" />
+          <div class="mt-2">
+            <canvas id="myChart" width="100%" height="137"></canvas>
           </div>
           <div class="mt-5 bg-[#f7fbfe]">
             <div class="border !border-blue bg-white px-3 py-1 flex leading-[30px]">
