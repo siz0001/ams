@@ -1,5 +1,46 @@
 const menus = [
   {
+    title: '모니터링',
+    href: '/monitoring',
+    key: 'monitoring',
+    icon: 'mdi-monitor-eye'
+  },
+  {
+    title: '현황',
+    key: 'current',
+    icon: 'mdi-chart-bar',
+    children: [
+      {
+        title: '현황',
+        key: 'current',
+        children: [
+          {
+            title: '미등록 현황',
+            href: '/unregistered'
+          },
+          {
+            title: '측정기 현황',
+            href: '/instrument'
+          },
+          {
+            title: '센서 평균 현황',
+            href: '/average'
+          },
+          {
+            title: '센서 기간별 현황',
+            href: '/sensorperiod'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    title: '도움말',
+    href: '/help',
+    key: 'help',
+    icon: 'mdi-alert-circle-check-outline'
+  },
+  {
     title: '관리',
     key: 'management',
     icon: 'mdi-application-cog',
@@ -84,47 +125,6 @@ const menus = [
         ]
       }
     ]
-  },
-  {
-    title: '모니터링',
-    href: '/monitoring',
-    key: 'monitoring',
-    icon: 'mdi-monitor-eye'
-  },
-  {
-    title: '현황',
-    key: 'current',
-    icon: 'mdi-chart-bar',
-    children: [
-      {
-        title: '현황',
-        key: 'current',
-        children: [
-          {
-            title: '미등록 현황',
-            href: '/unregistered'
-          },
-          {
-            title: '측정기 현황',
-            href: '/instrument'
-          },
-          {
-            title: '센서 평균 현황',
-            href: '/average'
-          },
-          {
-            title: '센서 기간별 현황',
-            href: '/sensorperiod'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    title: '도움말',
-    href: '/help',
-    key: 'help',
-    icon: 'mdi-alert-circle-check-outline'
   }
 ]
 

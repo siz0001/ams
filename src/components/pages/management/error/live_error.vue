@@ -21,39 +21,12 @@ for (let index = 0; index < 10; index++) {
 
 <template>
   <Layout title="실시간 장애 현황">
-    <div
-      class="mt-[50px] px-10 flex items-center justify-between bg-[#f3f9ff] h-[90px]"
-    >
+    <div class="mt-[50px] px-10 flex items-center justify-between bg-[#f3f9ff] h-[90px]">
       <div class="flex items-center space-x-2">
-        <v-text-field
-          class="w-[220px] bg-white"
-          color="primary"
-          density="compact"
-          label="기관"
-          placeholder="청파이엠티"
-          variant="outlined"
-          hide-details="auto"
-          shaped
-        ></v-text-field>
-        <v-text-field
-          class="w-[220px] bg-white"
-          color="primary"
-          density="compact"
-          label="측정기명"
-          placeholder="교실1"
-          variant="outlined"
-          hide-details="auto"
-          shaped
-        ></v-text-field>
-        <v-btn flat color="primary"
-          >조회<v-icon class="ml-1">mdi-magnify</v-icon>
-        </v-btn>
+        <v-text-field class="w-[220px] bg-white" color="primary" density="compact" label="기관" placeholder="청파이엠티" variant="outlined" hide-details="auto" shaped></v-text-field>
+        <v-text-field class="w-[220px] bg-white" color="primary" density="compact" label="측정기명" placeholder="교실1" variant="outlined" hide-details="auto" shaped></v-text-field>
+        <v-btn flat color="primary">조회<v-icon class="ml-1">mdi-magnify</v-icon> </v-btn>
         <v-btn flat color="white" class="border border-[#bfbfbf]">초기화</v-btn>
-      </div>
-      <div class="space-x-1">
-        <v-btn flat color="white" class="border border-[#bfbfbf]">등록</v-btn>
-        <v-btn flat color="white" class="border border-[#bfbfbf]">수정</v-btn>
-        <v-btn flat color="white" class="border border-[#bfbfbf]">삭제</v-btn>
       </div>
     </div>
     <div class="overflow-x-auto">

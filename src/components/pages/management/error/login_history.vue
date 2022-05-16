@@ -16,35 +16,11 @@ for (let index = 0; index < 10; index++) {
 
 <template>
   <Layout title="로그인 이력 현황">
-    <div
-      class="mt-[50px] px-10 flex flex-col gap-1 lg:flex-row lg:items-center lg:gap-1 justify-between bg-[#f3f9ff] py-6"
-    >
+    <div class="mt-[50px] px-10 flex flex-col gap-1 lg:flex-row lg:items-center lg:gap-1 justify-between bg-[#f3f9ff] py-6">
       <div class="flex items-center space-x-2">
-        <v-text-field
-          class="w-[220px] bg-white"
-          color="primary"
-          density="compact"
-          label="기관"
-          placeholder="청파이엠티"
-          variant="outlined"
-          hide-details="auto"
-          shaped
-        ></v-text-field>
-        <v-text-field
-          class="w-[220px] bg-white"
-          color="primary"
-          density="compact"
-          label="ID"
-          variant="outlined"
-          hide-details="auto"
-          shaped
-        ></v-text-field>
+        <v-text-field class="w-[220px] bg-white" color="primary" density="compact" label="기관" placeholder="청파이엠티" variant="outlined" hide-details="auto" shaped></v-text-field>
+        <v-text-field class="w-[220px] bg-white" color="primary" density="compact" label="ID" variant="outlined" hide-details="auto" shaped></v-text-field>
         <v-btn flat color="black">조회<v-icon>mdi-magnify</v-icon> </v-btn>
-      </div>
-      <div class="space-x-1">
-        <v-btn flat color="white" class="border border-[#bfbfbf]">등록</v-btn>
-        <v-btn flat color="white" class="border border-[#bfbfbf]">수정</v-btn>
-        <v-btn flat color="white" class="border border-[#bfbfbf]">삭제</v-btn>
       </div>
     </div>
     <div class="overflow-x-auto">

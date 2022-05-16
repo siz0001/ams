@@ -6,21 +6,18 @@ html {
   font-family: 'Noto Sans', sans-serif;
   overflow-y: auto;
   min-width: 375px;
-}
-html::-webkit-scrollbar {
-  width: 12px;
-}
-html::-webkit-scrollbar-track {
-  background: transparent;
-}
-html::-webkit-scrollbar-thumb {
-  background-color: #7f8497;
-  border: 3px solid #ffffff;
-  border-radius: 20px;
-  transition: opacity 0.3s ease-in-out;
-}
-html:hover::-webkit-scrollbar-thumb {
-  visible: visible;
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #7f8497;
+    border: 3px solid #ffffff;
+    border-radius: 20px;
+    transition: opacity 0.3s ease-in-out;
+  }
 }
 html,
 body,
@@ -67,7 +64,7 @@ sub {
 .table-basic {
   @apply w-full border-t-2 border-[#0076ca] text-sm;
   thead th {
-    @apply font-bold h-[53px] border-b border-[#e2e2e2] px-6;
+    @apply font-bold h-[53px] border-b border-[#e2e2e2] px-6 break-normal;
   }
   tbody td {
     @apply py-3 px-1 border-b border-[#e2e2e2];
@@ -75,8 +72,26 @@ sub {
 }
 
 .router-link {
-  @apply inline-block font-bold text-sm text-[#555555];
+  @apply block font-bold text-xs text-[#555555];
   &.router-link-active {
     @apply text-[#0076ca] underline underline-offset-4;
+  }
+}
+
+.side-enter-active {
+  overflow: hidden;
+  animation: slide 0.5s ease-in-out;
+}
+
+.side-leave-active {
+  overflow: hidden;
+  animation: slide 0.3s reverse;
+}
+@keyframes slide {
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 400px;
   }
 }

@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import Layout from '@/components/layout/index.vue'
 
 const dialog = ref(false)
+const confirm = ref(false)
 
 const datas = []
 for (let index = 0; index < 10; index++) {
@@ -22,35 +23,16 @@ for (let index = 0; index < 10; index++) {
 
 <template>
   <Layout title="기관 마스터 센서 관리">
-    <div
-      class="mt-[50px] px-10 flex flex-col gap-1 lg:flex-row lg:items-center lg:gap-1 justify-between bg-[#f3f9ff] py-6"
-    >
+    <div class="mt-[50px] px-10 flex flex-col gap-1 lg:flex-row lg:items-center lg:gap-1 justify-between bg-[#f3f9ff] py-6">
       <div class="flex items-center space-x-2">
-        <v-text-field
-          class="w-[220px] bg-white"
-          color="primary"
-          density="compact"
-          label="기관"
-          placeholder="청파이엠티"
-          variant="outlined"
-          hide-details="auto"
-          shaped
-        ></v-text-field>
+        <v-text-field class="w-[220px] bg-white" color="primary" density="compact" label="기관" placeholder="청파이엠티" variant="outlined" hide-details="auto" shaped></v-text-field>
         <v-btn flat color="primary">조회<v-icon>mdi-magnify</v-icon> </v-btn>
-        <v-btn flat color="white" class="border border-[#bfbfbf]"
-          >초기화
-        </v-btn>
+        <v-btn flat color="white" class="border border-[#bfbfbf]">초기화 </v-btn>
       </div>
       <div class="space-x-1">
-        <v-btn
-          flat
-          color="white"
-          class="border border-[#bfbfbf]"
-          @click="dialog = true"
-          >등록</v-btn
-        >
-        <v-btn flat color="white" class="border border-[#bfbfbf]">수정</v-btn>
-        <v-btn flat color="white" class="border border-[#bfbfbf]">삭제</v-btn>
+        <v-btn flat color="white" class="border border-[#bfbfbf]" @click="dialog = true">등록</v-btn>
+        <v-btn flat color="white" class="border border-[#bfbfbf]" @click="dialog = true">수정</v-btn>
+        <v-btn flat color="white" class="border border-[#bfbfbf]" @click="confirm = true">삭제</v-btn>
       </div>
     </div>
     <div class="overflow-x-auto">
@@ -88,9 +70,7 @@ for (let index = 0; index < 10; index++) {
     <v-pagination class="mt-8" rounded="circle" :length="6"></v-pagination>
     <v-dialog v-model="dialog">
       <div class="min-w-[600px]">
-        <div
-          class="bg-[#1b53a0] h-[80px] flex items-center justify-between pl-[50px] px-[38px]"
-        >
+        <div class="bg-[#1b53a0] h-[80px] flex items-center justify-between pl-[50px] px-[38px]">
           <div class="text-xl text-white font-bold">기관 센서 등록</div>
           <a class="cursor-pointer text-white p-2" @click="dialog = false">
             <v-icon>mdi-close</v-icon>
@@ -116,48 +96,28 @@ for (let index = 0; index < 10; index++) {
                   <input type="checkbox" class="form-checkbox" />
                 </td>
                 <td class="text-center">
-                  <select
-                    class="appearance-none w-full h-9 border border-[#c8c8c8] rounded-sm px-[10px] bg-select-bg bg-search bg-13"
-                  >
+                  <select class="form-select !h-9">
                     <option value="1">유</option>
                     <option value="2">무</option>
                   </select>
                 </td>
                 <td class="text-center">
-                  <select
-                    class="appearance-none w-full h-9 border border-[#c8c8c8] rounded-sm px-[10px] bg-select-bg bg-search bg-13"
-                  >
+                  <select class="form-select !h-9">
                     <option value="1">유</option>
                     <option value="2">무</option>
                   </select>
                 </td>
                 <td class="text-center">
-                  <input
-                    type="text"
-                    class="border border-[#c8c8c8] rounded-sm text-center w-[70px] h-9"
-                    :value="item.good"
-                  />
+                  <input type="text" class="border border-[#c8c8c8] rounded-sm text-center w-[70px] h-9" :value="item.good" />
                 </td>
                 <td class="text-center">
-                  <input
-                    type="text"
-                    class="border border-[#c8c8c8] rounded-sm text-center w-[70px] h-9"
-                    :value="item.usually"
-                  />
+                  <input type="text" class="border border-[#c8c8c8] rounded-sm text-center w-[70px] h-9" :value="item.usually" />
                 </td>
                 <td class="text-center">
-                  <input
-                    type="text"
-                    class="border border-[#c8c8c8] rounded-sm text-center w-[70px] h-9"
-                    :value="item.bad"
-                  />
+                  <input type="text" class="border border-[#c8c8c8] rounded-sm text-center w-[70px] h-9" :value="item.bad" />
                 </td>
                 <td class="text-center">
-                  <input
-                    type="text"
-                    class="border border-[#c8c8c8] rounded-sm text-center w-[70px] h-9"
-                    :value="item.veryBad"
-                  />
+                  <input type="text" class="border border-[#c8c8c8] rounded-sm text-center w-[70px] h-9" :value="item.veryBad" />
                 </td>
                 <td class="text-center">
                   <a class="inline-block cursor-pointer p-2">
@@ -168,23 +128,19 @@ for (let index = 0; index < 10; index++) {
             </tbody>
           </table>
           <div class="mt-[30px] flex space-x-[10px]">
-            <v-btn
-              color="#1b53a0"
-              variant="outlined"
-              size="x-large"
-              class="flex-1 font-bold"
-            >
-              저장
-            </v-btn>
-            <v-btn
-              color="#dedede"
-              variant="outlined"
-              size="x-large"
-              class="text-black flex-1 font-bold"
-              @click="dialog = false"
-            >
-              취소
-            </v-btn>
+            <v-btn color="#1b53a0" variant="outlined" size="x-large" class="flex-1 font-bold"> 저장 </v-btn>
+            <v-btn color="#dedede" variant="outlined" size="x-large" class="text-black flex-1 font-bold" @click="dialog = false"> 취소 </v-btn>
+          </div>
+        </div>
+      </div>
+    </v-dialog>
+    <v-dialog v-model="confirm">
+      <div class="w-[466px]">
+        <div class="border-[5px] !border-[#1b53a0] p-8 bg-white">
+          <div class="text-xl text-center">삭제하겠습니까?</div>
+          <div class="flex gap-2 justify-center mt-8">
+            <v-btn color="#1b53a0" size="large" class="text-white">확인</v-btn>
+            <v-btn size="large" @click="confirm = false">취소</v-btn>
           </div>
         </div>
       </div>
