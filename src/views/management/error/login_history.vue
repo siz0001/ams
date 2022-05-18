@@ -1,17 +1,28 @@
 <script setup>
 import Layout from '@/components/layout/index.vue'
+import { logins } from '@/api/history'
+import { onMounted, ref } from 'vue'
 
-const datas = []
-for (let index = 0; index < 10; index++) {
-  datas.push({
-    id: String(index).padStart(4, '0'),
-    agency: '청파초등학교',
-    userId: 'admin',
-    ip: '192.168.0.1',
-    loginTime: '2020-01-01 00:00:00',
-    logoutTime: '2020-01-01 00:00:00'
-  })
-}
+const { content: historys } = ref({
+  content: [],
+  totalPages: 0
+})
+
+onMounted(async () => {
+  const { content: historys } = await logins()
+})
+
+// const datas = []
+// for (let index = 0; index < 10; index++) {
+//   datas.push({
+//     id: String(index).padStart(4, '0'),
+//     agency: '청파초등학교',
+//     userId: 'admin',
+//     ip: '192.168.0.1',
+//     loginTime: '2020-01-01 00:00:00',
+//     logoutTime: '2020-01-01 00:00:00'
+//   })
+// }
 </script>
 
 <template>
@@ -36,7 +47,7 @@ for (let index = 0; index < 10; index++) {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in datas" :key="item.id">
+          <tr v-for="item in historys" :key="item.id">
             <td class="text-center">
               <input type="checkbox" class="form-checkbox" />
             </td>

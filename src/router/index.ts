@@ -1,37 +1,37 @@
 import { createWebHistory, createRouter } from 'vue-router'
-import Login from '@/components/pages/login/index.vue'
-import Monitoring from '@/components/pages/monitoring/index.vue'
-import Monitoring2 from '@/components/pages/monitoring/monitoring2.vue'
+
+import Monitoring from '@/views/monitoring/index.vue'
+import Monitoring2 from '@/views/monitoring/monitoring2.vue'
 // 관리-USER 관리
-import Institutional from '@/components/pages/management/user/institutional.vue'
-import User from '@/components/pages/management/user/user.vue'
+import Institutional from '@/views/management/user/institutional.vue'
+import User from '@/views/management/user/user.vue'
 
 // 관리-마스터 관리
-import LocalServer from '@/components/pages/management/master/local.vue'
-import AgencySensor from '@/components/pages/management/master/asensor.vue'
-import Msterilizer from '@/components/pages/management/master/sterilizer.vue'
-import MasterSensor from '@/components/pages/management/master/msensor.vue'
+import LocalServer from '@/views/management/master/local.vue'
+import AgencySensor from '@/views/management/master/asensor.vue'
+import Msterilizer from '@/views/management/master/sterilizer.vue'
+import MasterSensor from '@/views/management/master/msensor.vue'
 // 관리-설정관리
-import Measuring from '@/components/pages/management/setting/measuring.vue'
-import SettingSensor from '@/components/pages/management/setting/sensor.vue'
-import Group from '@/components/pages/management/setting/group.vue'
-import Sterilizer from '@/components/pages/management/setting/sterilizer.vue'
+import Measuring from '@/views/management/setting/measuring.vue'
+import SettingSensor from '@/views/management/setting/sensor.vue'
+import Group from '@/views/management/setting/group.vue'
+import Sterilizer from '@/views/management/setting/sterilizer.vue'
 // 관리-장애관리
-import LiveError from '@/components/pages/management/error/live_error.vue'
-import Error from '@/components/pages/management/error/error.vue'
-import LoginHistory from '@/components/pages/management/error/login_history.vue'
+import LiveError from '@/views/management/error/live_error.vue'
+import Error from '@/views/management/error/error.vue'
+import LoginHistory from '@/views/management/error/login_history.vue'
 
 // 현황
-import Unregistered from '@/components/pages/current/current/unregistered.vue'
-import Instrument from '@/components/pages/current/current/instrument.vue'
-import Average from '@/components/pages/current/current/average.vue'
-import Sensorperiod from '@/components/pages/current/current/sensorperiod.vue'
+import Unregistered from '@/views/current/current/unregistered.vue'
+import Instrument from '@/views/current/current/instrument.vue'
+import Average from '@/views/current/current/average.vue'
+import Sensorperiod from '@/views/current/current/sensorperiod.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Login',
-    component: Login
+    component: () => import('@/views/login/index.vue')
   },
   {
     path: '/management/user/institutional',
@@ -132,6 +132,5 @@ const routes = [
 
 export const router = createRouter({
   history: createWebHistory(),
-  mode: 'history',
   routes
 })

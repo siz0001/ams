@@ -1,5 +1,5 @@
 <script setup>
-import menus from '@/data/menu.js'
+import menus from '@/utils/menu'
 import cn from 'classnames'
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
