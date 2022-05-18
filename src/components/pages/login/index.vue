@@ -5,19 +5,14 @@ const dialog = ref(false)
 </script>
 
 <template>
-  <div class="max-w-[1620px] mx-auto min-h-screen p-0 bg-[url('/img/bg.jpg')] bg-no-repeat bg-top overflow-auto after:h-[350px] after:absolute after:top-0 after:left-0 after:right-0 after:bg-[#0076ca] after:-z-10">
-    <div class="mt-[60px] after:w-[10px] px-10 after:h-[20px] after:bg-black leading-0">
-      <img src="/img/chungpa.png" alt="" />
-    </div>
-    <div class="max-w-[614px] mx-auto rounded-2xl mt-[29px]">
-      <div class="h-[214px] border-t-2 border-r-2 border-l-2 border-white rounded-t-2xl py-[50px] px-[80px] pb-0">
-        <div class="text-[36px] text-[#1b53a0] mb-[5px]">CP-AMS</div>
-        <div class="flex items-center justify-between">
-          <div class="text-[65px] text-white font-bold">Login</div>
+  <div class="max-w-[1620px] mx-auto min-h-screen p-0 md:bg-[url('/img/bg.jpg')] bg-no-repeat bg-top overflow-auto md:after:h-[350px] md:after:absolute md:after:top-0 md:after:left-0 md:after:right-0 md:after:bg-[#0076ca] md:after:-z-10">
+    <div class="w-full md:max-w-[614px] md:mx-auto md:rounded-2xl md:mt-[136px]">
+      <div class="h-[214px] md:border-t-2 md:border-r-2 md:border-l-2 md:border-white md:rounded-t-2xl px-[80px] pb-0 bg-[#0076ca]">
+        <div class="flex items-center justify-center h-full">
           <div class=""><img src="/img/areq.png" alt="" /></div>
         </div>
       </div>
-      <div class="px-[80px] pt-[30px] border-2 border-t-0 !border-[#e2e2e2] rounded-b-2xl bg-white">
+      <div class="px-8 md:!px-[80px] pt-[30px] md:border-2 md:border-t-0 md:!border-[#e2e2e2] rounded-b-2xl bg-white">
         <div class="space-y-4">
           <v-text-field color="primary" label="CODE" variant="outlined" hide-details="auto" shaped></v-text-field>
           <v-text-field color="primary" label="ID" variant="outlined" hide-details="auto" shaped></v-text-field>
