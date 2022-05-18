@@ -6,7 +6,7 @@ export function logins() {
     method: 'GET',
     params: {
       page: 0,
-      size: 1
+      size: 20
     }
   })
 }

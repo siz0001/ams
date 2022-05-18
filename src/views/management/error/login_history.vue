@@ -1,16 +1,16 @@
 <script setup>
 import Layout from '@/components/layout/index.vue'
 import { logins } from '@/api/history'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, getCurrentInstance } from 'vue'
 
-const { content: historys } = ref({
-  content: [],
-  totalPages: 0
-})
+const historys = ref({})
 
-onMounted(async () => {
-  const { content: historys } = await logins()
-})
+onMounted(async () => {})
+
+function submit() {
+  const { refs } = getCurrentInstance()
+  console.log(refs)
+}
 
 // const datas = []
 // for (let index = 0; index < 10; index++) {
@@ -28,17 +28,16 @@ onMounted(async () => {
 <template>
   <Layout title="로그인 이력 현황">
     <div class="mt-[50px] px-10 flex flex-col gap-1 lg:flex-row lg:items-center lg:gap-1 justify-between bg-[#f3f9ff] py-6">
-      <div class="flex items-center space-x-2">
+      <v-form ref="form" @submit="submit" class="flex items-center space-x-2">
         <v-text-field class="w-[220px] bg-white" color="primary" density="compact" label="기관" placeholder="청파이엠티" variant="outlined" hide-details="auto" shaped></v-text-field>
-        <v-text-field class="w-[220px] bg-white" color="primary" density="compact" label="ID" variant="outlined" hide-details="auto" shaped></v-text-field>
-        <v-btn flat color="black">조회<v-icon>mdi-magnify</v-icon> </v-btn>
-      </div>
+        <v-text-field class="w-[220px] bg-white" color="primary" density="compact" label="ID" name="id" variant="outlined" hide-details="auto" shaped></v-text-field>
+        <v-btn flat color="black" type="submit">조회<v-icon>mdi-magnify</v-icon></v-btn>
+      </v-form>
     </div>
     <div class="overflow-x-auto">
       <table class="table-basic mt-8 min-w-[980px]">
         <thead>
           <tr>
-            <th class="w-[74px]">선택</th>
             <th>기관</th>
             <th>로그인ID</th>
             <th>IP</th>
@@ -47,15 +46,12 @@ onMounted(async () => {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in historys" :key="item.id">
-            <td class="text-center">
-              <input type="checkbox" class="form-checkbox" />
-            </td>
-            <td class="text-center">{{ item.agency }}</td>
-            <td class="text-center">{{ item.userId }}</td>
+          <tr v-for="item in historys.content" :key="item.id">
+            <td class="text-center">{{ item.name }}</td>
+            <td class="text-center">{{ item.organization.id }}</td>
             <td class="text-center">{{ item.ip }}</td>
-            <td class="text-center">{{ item.loginTime }}</td>
-            <td class="text-center">{{ item.logoutTime }}</td>
+            <td class="text-center">{{ item.login }}</td>
+            <td class="text-center">{{ item.logout }}</td>
           </tr>
         </tbody>
       </table>
