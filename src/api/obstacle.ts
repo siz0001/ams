@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-export function logins() {
+export function GetLogins() {
   return request({
     url: '/history/logins',
     method: 'GET',

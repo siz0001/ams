@@ -1,11 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import Layout from '@/components/layout/index.vue'
 
 const dialog = ref(false)
 const confirm = ref(false)
 
-const datas = []
+const datas: any = []
 for (let index = 0; index < 10; index++) {
   datas.push({
     id: String(index).padStart(4, '0'),
@@ -49,7 +49,7 @@ for (let index = 0; index < 10; index++) {
             <td class="text-center">
               <input type="checkbox" class="form-checkbox" />
             </td>
-            <td class="text-center">{{ item.agency }}</td>
+            <td class="text-center">{{ item.name }}</td>
             <td class="text-center">{{ item.userId }}</td>
             <td class="text-center">{{ item.ip }}</td>
             <td class="text-center">{{ item.loginTime }}</td>
