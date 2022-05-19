@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Layout from '@/components/layout/index.vue'
 import Table from '@/components/management/error/table.vue'
+import { ContentLoader } from 'vue-content-loader'
 
 // historys.value = data
 
@@ -32,7 +33,14 @@ import Table from '@/components/management/error/table.vue'
       </template>
 
       <!-- loading state -->
-      <template #fallback> Loading... </template>
+      <template #fallback>
+        <ContentLoader :speed="2" :animate="true" primaryColor="#ddd" secondaryColor="#ccc" width="100%" class="mt-8">
+          <rect x="0" y="0" rx="10" ry="10" width="100%" height="20" />
+          <rect x="0" y="30" rx="10" ry="10" width="100%" height="20" />
+          <rect x="0" y="60" rx="10" ry="10" width="100%" height="20" />
+          <rect x="0" y="90" rx="10" ry="10" width="100%" height="20" />
+        </ContentLoader>
+      </template>
     </Suspense>
   </Layout>
 </template>

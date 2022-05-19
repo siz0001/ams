@@ -4,10 +4,8 @@ import { GetLogins } from '@/api/obstacle'
 
 const historys = ref()
 
-try {
-  const { data } = await GetLogins()
-  historys.value = data
-} catch (error) {}
+const { data } = await GetLogins()
+historys.value = data
 </script>
 
 <template>
@@ -22,7 +20,7 @@ try {
           <th>로그아웃 일시</th>
         </tr>
       </thead>
-      <tbody v-if="data">
+      <tbody v-if="data.length">
         <tr v-for="item in data" :key="item.id">
           <td class="text-center">{{ item.name }}</td>
           <td class="text-center">{{ item.organization.id }}</td>
@@ -43,5 +41,5 @@ try {
       </tbody>
     </table>
   </div>
-  <v-pagination v-if="data" class="mt-8 px-5" rounded="circle" :length="6"></v-pagination>
+  <v-pagination v-if="data.length" class="mt-8 px-5" rounded="circle" :length="6"></v-pagination>
 </template>
