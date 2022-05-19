@@ -11,9 +11,9 @@ export const useAuthStore = defineStore("auth", {
 
   actions: {
     async login(credentials) {
-      await axios.get("sanctum/csrf-cookie");
+      // await axios.post("login");
 
-      const response = (await axios.post("api/login", credentials)).data;
+      const response = (await axios.post("login", credentials)).data;
 
       if (response) {
         const token = `Bearer ${response.token}`;

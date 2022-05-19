@@ -2,7 +2,7 @@ import { useErrorStore } from "../store/useError";
 import { router } from '../router'
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:8000/";
+axios.defaults.baseURL = "http://oneni.iptime.org:8080/api/v1/";
 axios.defaults.headers.common["Authorization"] = localStorage.getItem("token");
 axios.defaults.withCredentials = true;
 
